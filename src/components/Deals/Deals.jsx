@@ -1,7 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { getFashion } from "../../features/fashionSlice/fashionSlice";
+import { getPerfume } from "../../features/perfumeSlice/perfumeSlice";
 import { getWearing } from "../../features/wearingSlice/wearingSlice";
+import { getBooks } from "../../features/booksSlice/booksSlice";
+import { getForHome } from "../../features/forHomeSlice/forHomeSlice";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import "./Deals.css";
@@ -9,6 +12,9 @@ import "./Deals.css";
 export default function Deals() {
   const fashion = useSelector(getFashion);
   const wearing = useSelector(getWearing);
+  const perfume = useSelector(getPerfume);
+  const books = useSelector(getBooks);
+  const forHome = useSelector(getForHome);
   return (
     <div className="deals">
       <div className="deals-first">
@@ -62,51 +68,13 @@ export default function Deals() {
             type: "slide",
           }}
         >
-          <SplideSlide className="splide-perfume">
-            <img src="./perfume/juliette.jpg" alt="juliette" />
-          </SplideSlide>
-          <SplideSlide className="splide-perfume">
-            <img src="./perfume/pottery.jpg" alt="pottery" />
-          </SplideSlide>
-          <SplideSlide className="splide-perfume">
-            <img src="./perfume/nivea.webp" alt="nivea" />
-          </SplideSlide>
-          <SplideSlide className="splide-perfume">
-            <img src="./perfume/spotlight.jpg" alt="spotlight" />
-          </SplideSlide>
-          <SplideSlide className="splide-perfume">
-            <img src="./perfume/bleu.jpg" alt="bleu" />
-          </SplideSlide>
-          <SplideSlide className="splide-perfume">
-            <img src="./perfume/unum.webp" alt="unum" />
-          </SplideSlide>
-          <SplideSlide className="splide-perfume">
-            <img src="./perfume/arom.jpg" alt="arom" />
-          </SplideSlide>
-          <SplideSlide className="splide-perfume">
-            <img src="./perfume/tendre.webp" alt="tendre" />
-          </SplideSlide>
-          <SplideSlide className="splide-perfume">
-            <img src="./perfume/our.jpg" alt="our" />
-          </SplideSlide>
-          <SplideSlide className="splide-perfume">
-            <img src="./perfume/blood.jpg" alt="blood" />
-          </SplideSlide>
-          <SplideSlide className="splide-perfume">
-            <img src="./perfume/fragrant.jpg" alt="fragrant" />
-          </SplideSlide>
-          <SplideSlide className="splide-perfume">
-            <img src="./perfume/valentino.jpg" alt="valentino" />
-          </SplideSlide>
-          <SplideSlide className="splide-perfume">
-            <img src="./perfume/sauvage.jpg" alt="sauvage" />
-          </SplideSlide>
-          <SplideSlide className="splide-perfume">
-            <img src="./perfume/versace.jpg" alt="versace" />
-          </SplideSlide>
-          <SplideSlide className="splide-perfume">
-            <img src="./perfume/essencial.jpg" alt="essencial" />
-          </SplideSlide>
+          {perfume.map((products) => {
+            return (
+              <SplideSlide className="splide-perfume">
+                <img src={products.img} alt={products.name} />
+              </SplideSlide>
+            );
+          })}
         </Splide>
       </div>
       <div className="deals-third">
@@ -118,74 +86,25 @@ export default function Deals() {
             type: "slide",
           }}
         >
-          <SplideSlide className="splide-books">
-            <img src="./books/bitter.jpg" alt="bitter" />
-          </SplideSlide>
-          <SplideSlide className="splide-books">
-            <img src="./books/cloud.jpg" alt="cloud" />
-          </SplideSlide>
-          <SplideSlide className="splide-books">
-            <img src="./books/compulsive.jpg" alt="compulsive" />
-          </SplideSlide>
-          <SplideSlide className="splide-books">
-            <img src="./books/dakota.jpg" alt="dakota" />
-          </SplideSlide>
-          <SplideSlide className="splide-books">
-            <img src="./books/dekker.jpg" alt="dekker" />
-          </SplideSlide>
-          <SplideSlide className="splide-books">
-            <img src="./books/knowing.jpg" alt="knowing" />
-          </SplideSlide>
-          <SplideSlide className="splide-books">
-            <img src="./books/long.jpg" alt="long" />
-          </SplideSlide>
-          <SplideSlide className="splide-books">
-            <img src="./books/man.jpg" alt="man" />
-          </SplideSlide>
-          <SplideSlide className="splide-books">
-            <img src="./books/midnight.jpg" alt="midnight" />
-          </SplideSlide>{" "}
-          <SplideSlide className="splide-books">
-            <img src="./books/punch.jpg" alt="punch" />
-          </SplideSlide>
-          <SplideSlide className="splide-books">
-            <img src="./books/reality.jpg" alt="reality" />
-          </SplideSlide>
-          <SplideSlide className="splide-books">
-            <img src="./books/scotland.jpg" alt="scotland" />
-          </SplideSlide>
-          <SplideSlide className="splide-books">
-            <img src="./books/soldier.jpg" alt="soldier" />
-          </SplideSlide>
-          <SplideSlide className="splide-books">
-            <img src="./books/strategy.jpg" alt="strategy" />
-          </SplideSlide>
-          <SplideSlide className="splide-books">
-            <img src="./books/tough.jpg" alt="tough" />
-          </SplideSlide>
+          {books.map((products) => {
+            return (
+              <SplideSlide className="splide-books">
+                <img src={products.img} alt={products.name} />
+              </SplideSlide>
+            );
+          })}
         </Splide>
       </div>
       <div className="deals-fourth">
-        <div className="deals-sport size main-color">
-          <h2>Shop activity smartwatches</h2>
-          <img src="./accessories/watch.jpg" alt="watch" />
-          <a href="#">Shop Now</a>
-        </div>
-        <div className="deals-sport size main-color">
-          <h2>A whole new way to work</h2>
-          <img src="./accessories/work.jpg" alt="pc" />
-          <a href="#">Shop personal computers</a>
-        </div>
-        <div className="deals-sport size main-color">
-          <h2>Player's paradise starts here</h2>
-          <img src="./accessories/gaming.jpg" alt="pc" />
-          <a href="#">Shop video games</a>
-        </div>
-        <div className="deals-sport size main-color">
-          <h2>Upgrade your office furniture</h2>
-          <img src="./accessories/furniture.jpg" alt="pc" />
-          <a href="#">Shop now</a>
-        </div>
+        {forHome.map((deals) => {
+          return (
+            <div className="deals-sport size main-color">
+              <h2>{deals.name}</h2>
+              <img src={deals.img} alt={deals.name} />
+              <span>{deals.link}</span>
+            </div>
+          );
+        })}
       </div>
       <div className="deals-fifth">
         <h2>Best Sellers in PC Cases</h2>

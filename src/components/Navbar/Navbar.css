@@ -29,10 +29,19 @@
   border: 1px solid transparent;
   color: white;
   text-align: center;
+  text-decoration: none;
   position: relative;
   align-items: center;
   gap: 6px;
   margin: 6px;
+  font-size: 12px;
+  color: #ccc;
+}
+
+.header__button > svg,
+.header__button > div > h4 {
+  color: white;
+  font-size: 12px;
 }
 
 .header__button:hover {
@@ -111,10 +120,14 @@
   color: white;
   text-align: justify;
   width: 132px;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
   padding: 10px;
   border: 1px solid transparent;
+}
+
+.nav-reg > h4 {
+  font-size: 14px;
 }
 
 .nav-reg:hover {
@@ -126,8 +139,12 @@
   color: white;
   border: 1px solid transparent;
   padding: 10px;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 400;
+}
+
+.nav-order > h4 {
+  font-size: 14px;
 }
 
 .nav-order:hover {
@@ -136,6 +153,7 @@
 
 .nav-cart {
   color: white;
+  text-decoration: none;
   font-size: 16px;
   cursor: pointer;
   padding: 10px;
@@ -143,6 +161,11 @@
   margin-left: 6px;
   align-items: center;
   border: 1px solid transparent;
+  display: flex;
+}
+
+.nav-cart > h4 {
+  font-size: 14px;
 }
 
 .nav-cart:hover {

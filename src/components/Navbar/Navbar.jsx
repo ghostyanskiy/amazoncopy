@@ -6,42 +6,37 @@ import {
   faLocationDot,
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { getFilters } from "../../features/filterSlice/filterSlice";
+import Cart from "../../pages/Cart/Cart";
+import Home from "../../pages/Home/Home";
 import "./Navbar.css";
 
 function Navbar() {
+  const filters = useSelector(getFilters);
   return (
     <div className="header">
       <div className="nav-top">
         <div className="nav-left">
-          <a className="header__link" href="#">
+          <Link to="/" className="header__link">
             <img
               className="header__logo"
               src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
             />
-          </a>
-          <button className="header__button">
+          </Link>
+          <Link className="header__button">
             <FontAwesomeIcon icon={faLocationDot} />
             <div>
               Deliver to <h4>Armenia</h4>
             </div>
-          </button>
+          </Link>
         </div>
         <div className="nav-fill">
           <select name="filter" className="nav-filter">
-            <option value="all">All Departaments</option>
-            <option value="arts">Arts & Crafts</option>
-            <option value="auto">Automotive</option>
-            <option value="baby">Baby</option>
-            <option value="beauty">Beauty & Personal Care</option>
-            <option value="book">Books</option>
-            <option value="fashion">Boy's fashion</option>
-            <option value="computer">Computers</option>
-            <option value="deals">Deals</option>
-            <option value="music">Digital Music</option>
-            <option value="elec">Electronics</option>
-            <option value="gfashion">Girl's fashion</option>
-            <option value="health">Health & Household</option>
-            <option value="home">Home & Kitchen</option>
+            {filters.map((filter) => {
+              return <option value={filter.value}>{filter.name}</option>;
+            })}
           </select>
           <input
             type="text"
@@ -60,18 +55,18 @@ function Navbar() {
             <option value="de">DEU</option>
             <option value="ru">RU</option>
           </select>
-          <a href="#" className="nav-reg">
+          <Link to="/sign" className="nav-reg">
             Hello, sign in
-            <h5>Accounts & Lists</h5>
-          </a>
-          <a href="#" className="nav-order">
+            <h4>Account & Lists</h4>
+          </Link>
+          <Link href="#" className="nav-order">
             Returns
             <h4>& Orders</h4>
-          </a>
-          <div className="nav-cart">
+          </Link>
+          <Link to="/cart" className="nav-cart">
             <FontAwesomeIcon icon={faCartShopping} />
-            Cart
-          </div>
+            <h4>Cart</h4>
+          </Link>
         </div>
       </div>
       <div className="nav-bottom">

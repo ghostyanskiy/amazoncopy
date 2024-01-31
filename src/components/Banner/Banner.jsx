@@ -9,6 +9,23 @@ import "./Banner.css";
 export default function Banner() {
   const firstAccss = useSelector(getAccss);
   const getHomecare = useSelector(getHome);
+  const sliderImg = [
+    {
+      id: 1,
+      name: "valentine",
+      link: "./banner/valentine.jpg",
+    },
+    {
+      id: 2,
+      name: "lunar",
+      link: "./banner/lunar.jpg",
+    },
+    {
+      id: 3,
+      name: "books",
+      link: "./banner/books.jpg",
+    },
+  ];
   return (
     <div className="main">
       <Splide
@@ -17,15 +34,13 @@ export default function Banner() {
           rewind: "true",
         }}
       >
-        <SplideSlide>
-          <img src="./banner/first.jpg" alt="" />
-        </SplideSlide>
-        <SplideSlide>
-          <img src="./banner/second.jpg" alt="" />
-        </SplideSlide>
-        <SplideSlide>
-          <img src="./banner/third.jpg" alt="" />
-        </SplideSlide>
+        {sliderImg.map((img) => {
+          return (
+            <SplideSlide>
+              <img src={img.link} alt={img.name} />
+            </SplideSlide>
+          );
+        })}
       </Splide>
       <div className="main-content">
         <div className="firstcontent size main-color">

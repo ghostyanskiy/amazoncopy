@@ -1,8 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
-import accessoriesSlice from "../features/accessoriesSlice/accessoriesSlice";
-import homecareSlice from "../features/homecareSlice/homecareSlice";
-import fashionSlice from "../features/fashionSlice/fashionSlice";
-import wearingSlice from "../features/wearingSlice/wearingSlice";
+import {
+  accessoriesSlice,
+  booksSlice,
+  fashionSlice,
+  filterSlice,
+  forHomeSlice,
+  homecareSlice,
+  perfumeSlice,
+  wearingSlice,
+} from "../features";
 
 const store = configureStore({
   reducer: {
@@ -10,6 +16,10 @@ const store = configureStore({
     homecare: homecareSlice,
     fashion: fashionSlice,
     wearing: wearingSlice,
+    filter: filterSlice,
+    perfume: perfumeSlice,
+    books: booksSlice,
+    home: forHomeSlice,
   },
 });
 

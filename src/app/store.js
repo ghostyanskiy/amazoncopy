@@ -2,10 +2,12 @@ import { configureStore } from "@reduxjs/toolkit";
 import {
   accessoriesSlice,
   booksSlice,
+  discountsSlice,
   fashionSlice,
   filterSlice,
   forHomeSlice,
   homecareSlice,
+  pcSlice,
   perfumeSlice,
   wearingSlice,
 } from "../features";
@@ -20,6 +22,8 @@ const store = configureStore({
     perfume: perfumeSlice,
     books: booksSlice,
     home: forHomeSlice,
+    pc: pcSlice,
+    discount: discountsSlice,
   },
 });
 

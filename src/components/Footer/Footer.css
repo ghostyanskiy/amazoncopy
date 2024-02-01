@@ -1,14 +1,6 @@
 .footer {
   margin: 0 auto;
-}
-
-.regrec {
-  text-align: center;
-  margin-bottom: 20px;
-}
-.regrec > hr {
-  width: 96%;
-  margin: auto;
+  padding-top: 150px;
 }
 
 .reg {
@@ -20,10 +12,8 @@
   font-size: 13px;
 }
 
-.reg > button {
-  margin: 5px;
-  width: 230px;
-  height: 28px;
+.reg > a {
+  padding: 6px 96px;
   cursor: pointer;
   font-size: 12px;
   text-shadow: 0 1px 0 #ffe093;
@@ -189,7 +179,6 @@
 }
 
 .footer-final {
-  height: 480px;
   background-color: #131a22;
   padding: 30px 0;
   text-align: left;

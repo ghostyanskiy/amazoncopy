@@ -134,3 +134,35 @@
 .deals-sixth {
   margin-bottom: 20px;
 }
+
+.regrec {
+  text-align: center;
+  margin-bottom: 20px;
+  padding-top: 40px;
+}
+.regrec > hr {
+  width: 96%;
+  margin: auto;
+}
+
+.splide-deals > svg {
+  position: absolute;
+  right: 0;
+  bottom: 90%;
+  background-color: #fcd200;
+  color: white;
+  padding: 6px;
+  border-radius: 0 6px 0 6px;
+}
+.splide-deals > svg:hover {
+  background-color: orange;
+  transition: 0.3s all;
+}
+
+.reg > a {
+  text-decoration: none;
+}
+
+.reg-text > span {
+  padding-top: 5px;
+}

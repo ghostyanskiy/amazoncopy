@@ -9,8 +9,6 @@ import {
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { getFilters } from "../../features/filterSlice/filterSlice";
-import Cart from "../../pages/Cart/Cart";
-import Home from "../../pages/Home/Home";
 import "./Navbar.css";
 
 function Navbar() {

@@ -14,7 +14,7 @@ export default function App() {
       <Route path="/" element={<Layouts />}>
         <Route index element={<Home />}></Route>
         <Route path="cart" element={<Cart />}></Route>
-        <Route path="signin" element={<Sign />}></Route>
+        <Route path="sign" element={<Sign />}></Route>
       </Route>
     )
   );

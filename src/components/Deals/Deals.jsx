@@ -10,6 +10,9 @@ import { getDiscount } from "../../features/discountsSlice/discountsSlice";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import "./Deals.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 export default function Deals() {
   const fashion = useSelector(getFashion);
@@ -140,6 +143,7 @@ export default function Deals() {
           {discount.map((products) => {
             return (
               <SplideSlide className="splide-deals">
+                <FontAwesomeIcon icon={faCartShopping} />
                 <img src={products.img} alt={products.alt} />
                 <div className="deals-bg">
                   <span>{products.text1}</span> {products.text2}
@@ -158,6 +162,21 @@ export default function Deals() {
             );
           })}
         </Splide>
+        <div className="regrec">
+          <hr />
+          <div className="reg">
+            <span>See personalized recommendations</span>
+            <br />
+            <Link to="/sign">Sign in</Link>
+            <br />
+            <div className="reg-text main-color">
+              <span>
+                New customer? <a href="#">Start here.</a>
+              </span>
+            </div>
+          </div>
+          <hr />
+        </div>
       </div>
     </div>
   );

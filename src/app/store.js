@@ -5,6 +5,8 @@ import {
   discountsSlice,
   fashionSlice,
   filterSlice,
+  firstFooterSlice,
+  footerSlice,
   forHomeSlice,
   homecareSlice,
   pcSlice,
@@ -24,6 +26,8 @@ const store = configureStore({
     home: forHomeSlice,
     pc: pcSlice,
     discount: discountsSlice,
+    footer: footerSlice,
+    firstfooter: firstFooterSlice,
   },
 });
 

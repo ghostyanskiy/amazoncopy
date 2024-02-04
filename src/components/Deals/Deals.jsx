@@ -1,5 +1,4 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getFashion } from "../../features/fashionSlice/fashionSlice";
 import { getPerfume } from "../../features/perfumeSlice/perfumeSlice";
 import { getWearing } from "../../features/wearingSlice/wearingSlice";
@@ -8,11 +7,12 @@ import { getPC } from "../../features/pcSlice/pcSlice";
 import { getForHome } from "../../features/forHomeSlice/forHomeSlice";
 import { getDiscount } from "../../features/discountsSlice/discountsSlice";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
-import "@splidejs/react-splide/css";
-import "./Deals.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import { addToCart } from "../../features/cartSlice.js/cartSlice";
+import "@splidejs/react-splide/css";
+import "./Deals.css";
 
 export default function Deals() {
   const fashion = useSelector(getFashion);
@@ -22,6 +22,11 @@ export default function Deals() {
   const forHome = useSelector(getForHome);
   const pc = useSelector(getPC);
   const discount = useSelector(getDiscount);
+  const dispatch = useDispatch();
+
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+  };
   return (
     <div className="deals">
       <div className="deals-first">
@@ -30,7 +35,7 @@ export default function Deals() {
           <div>
             {fashion.map((products) => {
               return (
-                <div id="key" className="fashion">
+                <div key={products.id} className="fashion">
                   <img src={products.img} alt={products.name} />
                   <br />
                   <span className="fashion-text">{products.name}</span>
@@ -77,7 +82,7 @@ export default function Deals() {
         >
           {perfume.map((products) => {
             return (
-              <SplideSlide className="splide-perfume">
+              <SplideSlide key={products.id} className="splide-perfume">
                 <img src={products.img} alt={products.name} />
               </SplideSlide>
             );
@@ -95,7 +100,7 @@ export default function Deals() {
         >
           {books.map((products) => {
             return (
-              <SplideSlide className="splide-books">
+              <SplideSlide key={products.id} className="splide-books">
                 <img src={products.img} alt={products.name} />
               </SplideSlide>
             );
@@ -105,7 +110,7 @@ export default function Deals() {
       <div className="deals-fourth">
         {forHome.map((deals) => {
           return (
-            <div className="deals-sport size main-color">
+            <div key={deals.id} className="deals-sport size main-color">
               <h2>{deals.name}</h2>
               <img src={deals.img} alt={deals.name} />
               <a href="#">{deals.link}</a>
@@ -124,7 +129,7 @@ export default function Deals() {
         >
           {pc.map((products) => {
             return (
-              <SplideSlide className="splide-books">
+              <SplideSlide key={products.id} className="splide-books">
                 <img src={products.img} alt={products.name} />
               </SplideSlide>
             );
@@ -142,8 +147,11 @@ export default function Deals() {
         >
           {discount.map((products) => {
             return (
-              <SplideSlide className="splide-deals">
-                <FontAwesomeIcon icon={faCartShopping} />
+              <SplideSlide key={products.id} className="splide-deals">
+                <FontAwesomeIcon
+                  onClick={() => handleAddToCart(products)}
+                  icon={faCartShopping}
+                />
                 <img src={products.img} alt={products.alt} />
                 <div className="deals-bg">
                   <span>{products.text1}</span> {products.text2}

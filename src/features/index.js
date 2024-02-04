@@ -1,5 +1,6 @@
 import accessoriesSlice from "./accessoriesSlice/accessoriesSlice";
 import booksSlice from "./booksSlice/booksSlice";
+import cartSlice from "./cartSlice.js/cartSlice";
 import discountsSlice from "./discountsSlice/discountsSlice";
 import fashionSlice from "./fashionSlice/fashionSlice";
 import filterSlice from "./filterSlice/filterSlice";
@@ -24,4 +25,5 @@ export {
   discountsSlice,
   footerSlice,
   firstFooterSlice,
+  cartSlice,
 };

@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { getFirstFooter } from "../../features/firstFooterSlice/firstFooterSlice";
 import { getFooter } from "../../features/footerSlice/footerSlice";
@@ -23,25 +22,41 @@ export default function Footer() {
           <div className="footer-first">
             <h3>Get to Know Us</h3>
             {firstFooter.first.map((value) => {
-              return <a href="#">{value.text}</a>;
+              return (
+                <a key={value.id} href="#">
+                  {value.text}
+                </a>
+              );
             })}
           </div>
           <div className="footer-second">
             <h3>Make Money with Us</h3>
             {firstFooter.second.map((value) => {
-              return <a href="#">{value.text}</a>;
+              return (
+                <a key={value.id} href="#">
+                  {value.text}
+                </a>
+              );
             })}
           </div>
           <div className="footer-third">
             <h3>Amazon Payment Products</h3>
             {firstFooter.third.map((value) => {
-              return <a href="#">{value.text}</a>;
+              return (
+                <a key={value.id} href="#">
+                  {value.text}
+                </a>
+              );
             })}
           </div>
           <div className="footer-fourth">
             <h3>Let Us Help You</h3>
             {firstFooter.fourth.map((value) => {
-              return <a href="#">{value.text}</a>;
+              return (
+                <a key={value.id} href="#">
+                  {value.text}
+                </a>
+              );
             })}
           </div>
         </div>
@@ -71,7 +86,7 @@ export default function Footer() {
             <tr>
               {footer.first.map((value) => {
                 return (
-                  <td className="footertd">
+                  <td key={value.id} className="footertd">
                     <a href="#" className="footer-links">
                       {value.name}
                       <br />
@@ -85,7 +100,7 @@ export default function Footer() {
             <tr>
               {footer.second.map((value) => {
                 return (
-                  <td className="footertd">
+                  <td key={value.id} className="footertd">
                     <a href="#" className="footer-links">
                       {value.name}
                       <br />
@@ -99,7 +114,7 @@ export default function Footer() {
             <tr>
               {footer.third.map((value) => {
                 return (
-                  <td className="footertd">
+                  <td key={value.id} className="footertd">
                     <a href="#" className="footer-links">
                       {value.name}
                       <br />
@@ -113,7 +128,7 @@ export default function Footer() {
             <tr className="fourth-tr">
               {footer.fourth.map((value) => {
                 return (
-                  <td className="footertd">
+                  <td key={value.id} className="footertd">
                     <a href="#" className="footer-links">
                       {value.name}
                       <br />

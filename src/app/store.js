@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import {
   accessoriesSlice,
   booksSlice,
+  cartSlice,
   discountsSlice,
   fashionSlice,
   filterSlice,
@@ -28,6 +29,7 @@ const store = configureStore({
     discount: discountsSlice,
     footer: footerSlice,
     firstfooter: firstFooterSlice,
+    cart: cartSlice,
   },
 });
 
